@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import API from "../Utils/API";
 
 import "./strains.css";
 
@@ -64,6 +65,13 @@ const StrainList = [{
 
 class Strains extends Component {
 
+    componentDidMount() {
+        API.findAll()
+        .then(res => 
+            console.log(res.data)
+            )
+            .catch(err => console.log(err));
+    }
 
     renderStrainList = strain => (
         <React.Fragment>
